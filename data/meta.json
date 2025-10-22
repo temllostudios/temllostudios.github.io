@@ -1,0 +1,30 @@
+{
+  "/": {
+    "title": " Temllo Studios | AI Video Production Agency | AI Video Ads, Commercials & Films",
+    "description": "Temllo Studios leads in AI video production with AI video ads, commercial videos, music videos, and films — innovative AI video marketing for brands.",
+    "image": "https://temllostudios.github.io/assets/img/og-home.jpg",
+    "canonical": "https://temllostudios.github.io/",
+    "twitter_card": "summary_large_image"
+  },
+  "/about.html": {
+    "title": "About Temllo Studios | AI Video Production & AI Video Ads Experts.",
+    "description": "Discover Temllo Studios’ dedication to cutting-edge AI video ads, commercial videos, music videos, and film production using AI-driven tools and creativity.",
+    "image": "https://temllostudios.github.io/assets/img/og-about.jpg",
+    "canonical": "https://temllostudios.github.io/about.html"
+    
+  },
+  "/contact.html": {
+    "title": " Temllo Studios | AI Video Production Agency | AI Video Ads, Commercials & Films",
+    "description": "Temllo Studios leads in AI video production with AI video ads, commercial videos, music videos, and films — innovative AI video marketing for brands.",
+    "image": "https://temllostudios.github.io/assets/img/og-contact.jpg",
+    "canonical": "https://temllostudios.github.io/contact.html"
+    
+  },
+  "/blog/post-01.html": {
+    "title": "How AI Shortens Video Production — Temllo Studios",
+    "description": "Learn how AI automates editing, voiceover and motion to cut video production time and cost.",
+    "image": "https://temllostudios.github.io/assets/img/blog/post-01.jpg",
+    "canonical": "https://temllostudios.github.io/blog/post-01.html",
+    "datePublished": "2025-10-18"
+  }
+}

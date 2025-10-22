@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- DEV/PROD auto toggle: sets SITE_BASE_URL only on non-local hosts -->
+  <script>
+    if (!location.hostname.match(/localhost|127\\.0\\.0\\.1/)) {
+      window.SITE_BASE_URL = "https://temllostudios.github.io";
+    }
+  </script>
+
+  <!-- basic favicon (browsers will also auto-request /favicon.ico if present) -->
+<link rel="icon" href="/favicon.ico" />
+
+<!-- PNG icons for higher quality -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+<!-- Apple touch (iOS home screen) -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<!-- Web manifest (optional) -->
+<link rel="manifest" href="/site.webmanifest">
+
+  <title>AI Video Production Services - Temllo Studios</title>
+    <meta name="description" content="Professional AI-powered video production for commercials, music videos & films. 70% cost savings, 10x faster delivery. Premium quality, affordable pricing.">
+  <meta name="keywords" content="AI video production, AI video agency, AI editing">
+   <link rel="canonical" href="https://temllostudios.github.io/">
+  <meta property="og:title" content="AI Video Agency — AI-powered video production" />
+  <meta property="og:description" content="AI Video Agency creates fast, affordable, high-quality marketing videos using AI-driven tools." />
+  <meta property="og:image" content="https://temllostudios.github.io/assets/img/og-home.jpg" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- local-friendly relative stylesheet -->
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+<div id="site-header"></div>
+
+
+
+
+<div id="site-footer"></div>
+
+  <!-- load includes & main script (relative paths) -->
+  <script defer src="assets/js/include-partials.js"></script>
+  <script defer src="assets/js/main.js"></script>
+</body>
+</html>
