@@ -43,6 +43,7 @@
     const html = await fetchWithFallback(resolveCandidates(path));
     if (html !== null) el.innerHTML = html;
     else console.error('Could not load partial:', path);
+    return html;
   }
 
   function setMeta(attr, name, content) {
@@ -98,11 +99,29 @@
     }
   }
 
+  // Initialize mobile menu function (make sure this exists in your project)
+  function initializeMobileMenu() {
+    // Add your mobile menu initialization code here
+    // This function should be defined elsewhere in your project
+    if (typeof window.initializeMobileMenu === 'function') {
+      window.initializeMobileMenu();
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', async function () {
+    // Load header with mobile menu initialization
     await includePartial('#site-header', PARTIALS.header);
+    // Initialize mobile menu after header is loaded
+    initializeMobileMenu();
+
+    // Load footer
     await includePartial('#site-footer', PARTIALS.footer);
+    
+    // Update year in footer
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
+    
+    // Apply meta tags
     applyMetaFromJson();
   });
 })();
