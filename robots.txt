@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://temllostudios.github.io/sitemap.xml
