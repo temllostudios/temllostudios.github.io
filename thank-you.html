@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Temllo Studios</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f0a1d, #1a1033);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .thank-you-container {
+            max-width: 600px;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #6b46c1, #9f7aea);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, #9f7aea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            color: #9f7aea;
+        }
+        
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #333;
+            border-top: 2px solid #9f7aea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #9f7aea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="checkmark">
+            <i class="fas fa-check"></i>
+        </div>
+        <h1>Thank You!</h1>
+        <p>Your message has been received successfully. We'll get back to you shortly.</p>
+        <p>Redirecting to WhatsApp...</p>
+        <div class="loading">
+            <div class="spinner"></div>
+            <span>Opening WhatsApp</span>
+        </div>
+        <a href="index.html" class="back-link">← Back to Homepage</a>
+    </div>
+
+    <script>
+        // Get form data from sessionStorage
+        const formData = JSON.parse(sessionStorage.getItem('whatsappFormData') || '{}');
+        
+        // Construct WhatsApp message
+        const phoneNumber = '2349011240757'; // Your WhatsApp number
+        const message = `Hi Temllo Studios! I just submitted a video request.%0A%0A*Name:* ${formData.name || ''}%0A*Email:* ${formData.email || ''}%0A*Company:* ${formData.company || 'Not specified'}%0A*Project Type:* ${formData.projectType || ''}%0A*Budget:* ${formData.budget || 'Not specified'}%0A%0A*Project Details:*%0A${formData.message || ''}%0A%0APlease get back to me with more information.`;
+        
+        // Redirect to WhatsApp after a short delay
+        setTimeout(() => {
+            window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
+        }, 2000); // 2 second delay to show the thank you page
+        
+        // Clean up sessionStorage after use
+        setTimeout(() => {
+            sessionStorage.removeItem('whatsappFormData');
+        }, 5000);
+    </script>
+    
+    <!-- Font Awesome for the check icon -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</body>
+</html>
