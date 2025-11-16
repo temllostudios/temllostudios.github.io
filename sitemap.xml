@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<!-- Main site (preferred canonical) -->
-<url>
-<loc>https://temllostudios.com/</loc>
-<lastmod>2025-11-16</lastmod>
-<changefreq>monthly</changefreq>
-<priority>1.0</priority>
-</url>
+  
+  <!-- Primary canonical URL - non-www version -->
+  <url>
+    <loc>https://temllostudios.com/</loc>
+    <lastmod>2024-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
 
-
-<!-- Optional: include www variant so search engines know both exist -->
-<url>
-<loc>https://www.temllostudios.com/</loc>
-<lastmod>2025-11-16</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.9</priority>
-</url>
 </urlset>
