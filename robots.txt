@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+
+# Point crawlers to your sitemap
 Sitemap: https://temllostudios.com/sitemap.xml
+Host: temllostudios.com
