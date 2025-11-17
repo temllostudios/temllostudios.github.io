@@ -4,6 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You - Temllo Studios</title>
+    
+    <!-- Facebook Pixel Code for Thank You Page -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        fbq('init', '1201376198508696');
+        fbq('track', 'PageView');
+        
+        // Track conversion on thank you page
+        fbq('track', 'CompleteRegistration', {
+            content_name: 'Video Project Submission',
+            content_category: 'Contact Form',
+            value: 0.00,
+            currency: 'USD',
+            status: 'completed'
+        });
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" 
+             src="https://www.facebook.com/tr?id=1201376198508696&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+
     <style>
         * {
             margin: 0;
@@ -97,6 +127,16 @@
         .back-link:hover {
             color: #fff;
         }
+
+        .conversion-message {
+            background: rgba(107, 70, 193, 0.1);
+            border: 1px solid rgba(107, 70, 193, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #9f7aea;
+        }
     </style>
 </head>
 <body>
@@ -111,6 +151,12 @@
             <div class="spinner"></div>
             <span>Opening WhatsApp</span>
         </div>
+        
+        <div class="conversion-message">
+            <i class="fas fa-chart-line"></i>
+            Your conversion is being tracked for optimization
+        </div>
+        
         <a href="index.html" class="back-link">← Back to Homepage</a>
     </div>
 
@@ -119,13 +165,25 @@
         const formData = JSON.parse(sessionStorage.getItem('whatsappFormData') || '{}');
         
         // Construct WhatsApp message
-        const phoneNumber = '2349011240757'; // Your WhatsApp number
+        const phoneNumber = '2349011240757';
         const message = `Hi Temllo Studios! I just submitted a video request.%0A%0A*Name:* ${formData.name || ''}%0A*Email:* ${formData.email || ''}%0A*Company:* ${formData.company || 'Not specified'}%0A*Project Type:* ${formData.projectType || ''}%0A*Budget:* ${formData.budget || 'Not specified'}%0A%0A*Project Details:*%0A${formData.message || ''}%0A%0APlease get back to me with more information.`;
+        
+        // Track custom conversion event with form data
+        if (formData.name && formData.email) {
+            fbq('track', 'Lead', {
+                content_name: 'Video Project Submission',
+                content_category: formData.projectType || 'General Inquiry',
+                value: parseFloat(formData.budget?.replace(/[^\d.]/g, '')) || 0.00,
+                currency: 'USD',
+                name: formData.name,
+                email: formData.email
+            });
+        }
         
         // Redirect to WhatsApp after a short delay
         setTimeout(() => {
             window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
-        }, 2000); // 2 second delay to show the thank you page
+        }, 3000); // 3 second delay to ensure tracking
         
         // Clean up sessionStorage after use
         setTimeout(() => {
