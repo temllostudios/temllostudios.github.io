@@ -42,7 +42,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Temllo Studios | AI Video Production Worldwide – Videos That Sell" />
   <meta name="twitter:description" content="Cinematic marketing videos, explainer videos & brand films from a fully remote global team. Up to 93% ROI, delivered in days." />
-  <meta name="twitter:image" content="https://www.temllostudios.com/twitter-global.jpg" />
+  <meta name="twitter:image" content="https://www.temllostudios.com/twitter-global.png" />
   <meta name="twitter:site" content="@temllostudios" />
 
   <!-- Structured Data -->
@@ -95,23 +95,24 @@
     gtag('config', 'G-XXXXXXX');
   </script>
 
-  <!-- Facebook Pixel (replace YOUR_PIXEL_ID) -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'YOUR_PIXEL_ID');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/>
-  </noscript>
+  
+  <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1201376198508696');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1201376198508696&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 
   <style>
     * {
@@ -4582,6 +4583,7 @@
     </div>
   </footer>
 
+  
   <!-- JavaScript -->
   <script>
     // Set current year in footer
@@ -4828,7 +4830,7 @@
       }
     }
 
-    // Contact Form Handling with Google Forms submission
+    // Contact Form Handling with Google Forms submission and Facebook Pixel
     function initializeContactForm() {
       const contactForm = document.getElementById('customContactForm');
       const successMessage = document.getElementById('successMessage');
@@ -4862,6 +4864,14 @@
         contactForm.classList.add('form-submitting');
         
         try {
+          // Track form submission with Facebook Pixel
+          fbq('track', 'InitiateCheckout', {
+            content_name: 'Video Project Form Started',
+            content_category: formData.projectType,
+            value: parseFloat(formData.budget?.replace(/[^\d.]/g, '')) || 0.00,
+            currency: 'USD'
+          });
+          
           // Submit to Google Forms
           const googleFormURL = 'https://docs.google.com/forms/d/e/1FAIpQLSdP2RGiUGY0lI8ewoWYmyY83LHyMoRCQhBDuilPFvjfIBWSQA/formResponse';
           
@@ -4875,11 +4885,18 @@
           formDataObj.append('entry.247847840', formData.message);
           
           // Submit to Google Forms using fetch with no-cors mode
-          // Note: We can't read the response due to CORS, but we can still submit
           await fetch(googleFormURL, {
             method: 'POST',
             body: formDataObj,
             mode: 'no-cors'
+          });
+          
+          // Track successful form submission
+          fbq('track', 'AddToCart', {
+            content_name: 'Video Project Form Submitted',
+            content_category: formData.projectType,
+            value: parseFloat(formData.budget?.replace(/[^\d.]/g, '')) || 0.00,
+            currency: 'USD'
           });
           
           // Store form data in sessionStorage for the thank-you page
@@ -4889,13 +4906,30 @@
           successMessage.style.display = 'flex';
           errorMessage.style.display = 'none';
           
+          // Track lead event
+          fbq('track', 'Lead', {
+            content_name: 'Video Project Lead',
+            content_category: formData.projectType,
+            value: parseFloat(formData.budget?.replace(/[^\d.]/g, '')) || 0.00,
+            currency: 'USD'
+          });
+          
           // Redirect to thank-you page after a short delay
           setTimeout(() => {
             window.location.href = 'thank-you.html';
-          }, 2000);
+          }, 1500);
           
         } catch (error) {
           console.error('Form submission error:', error);
+          
+          // Track form error
+          fbq('track', 'AddPaymentInfo', {
+            content_name: 'Form Submission Error',
+            content_category: 'Error',
+            value: 0.00,
+            currency: 'USD',
+            status: 'error'
+          });
           
           // Show error message
           errorMessage.style.display = 'flex';
@@ -4909,6 +4943,51 @@
       });
     }
 
+    // Track button clicks and important user interactions
+    function initializeEngagementTracking() {
+      // Track CTA button clicks
+      document.querySelectorAll('.cta-button, .hero-button-secondary, .pricing-card-button, .service-cta').forEach(button => {
+        button.addEventListener('click', function() {
+          const buttonText = this.textContent.trim();
+          fbq('track', 'AddToWishlist', {
+            content_name: buttonText + ' Click',
+            content_category: 'CTA Click',
+            value: 0.00,
+            currency: 'USD'
+          });
+        });
+      });
+      
+      // Track view content for key sections
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+      };
+      
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            fbq('track', 'ViewContent', {
+              content_name: sectionId + ' Section View',
+              content_category: 'Page Section',
+              value: 0.00,
+              currency: 'USD'
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      // Observe key sections
+      const sectionsToTrack = ['services', 'portfolio', 'testimonials', 'pricing-packages', 'contact'];
+      sectionsToTrack.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) observer.observe(section);
+      });
+    }
+
     // Initialize everything when DOM is fully loaded
     document.addEventListener('DOMContentLoaded', function() {
       initializeSmoothScrolling();
@@ -4917,6 +4996,7 @@
       initializePortfolioFiltering();
       initializeMobileMenu();
       initializeContactForm();
+      initializeEngagementTracking();
     });
   </script>
 </body>
