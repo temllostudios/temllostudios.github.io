@@ -1,5 +1,15 @@
 User-agent: *
 Allow: /
-Sitemap: https://temllostudios.com/sitemap.xml
 
-# Crawl-delay: 10 (optional if you have many requests)
+# Google-specific
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+# Sitemap
+Sitemap: https://temllostudios.com/sitemap.xml
