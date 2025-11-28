@@ -105,6 +105,35 @@ src="https://www.facebook.com/tr?id=1878169182781720&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
+<!-- Put this after loading the Pixel base code (e.g., before </body>) -->
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var buyBtn = document.getElementById('selar-buy-btn'); // see HTML below
+  if(!buyBtn) return;
+  buyBtn.addEventListener('click', function(e){
+    // Prevent default navigation until we send the event
+    e.preventDefault();
+
+    // Fire InitiateCheckout event
+    try {
+      fbq('track', 'InitiateCheckout', {
+        value: PRICE_OR_0,     // numeric, e.g., 5000 or 0
+        currency: 'NGN',
+        content_ids: ['5rj67ed161'],
+        content_name: 'Your Product Name'
+      });
+    } catch(err){ console.warn('fbq not ready', err); }
+
+    // Navigate to Selar checkout in same tab (no new tab)
+    // Option 1: Immediate navigation (no delay)
+    window.location.href = 'https://selar.com/5rj67ed161?add_to_cart=1&utm_source=website&utm_medium=landing&utm_campaign=launch';
+
+    // Option 2: small delay to give analytics a moment
+    // setTimeout(function(){ window.location.href = 'https://selar.com/5rj67ed161?add_to_cart=1'; }, 200);
+  });
+  });
+</script>
+
 
 <style>
     * {
@@ -4832,8 +4861,8 @@ h2::after {
     <div class="hero-content">
       <h1 class="hero-title">
         <span class="title-line">Learn The Step-By-Step System</span>
-        <span class="title-line">To Create Professional AI Marketing Videos</span>
-        <span class="title-line">And Start Earning in Naira & Dollars </span>
+        <span class="title-line">Create Professional AI Marketing Videos</span>
+        <span class="title-line">Start Earning in Naira & Dollars </span>
       </h1>
       
       <p class="hero-subtitle">
@@ -5509,7 +5538,7 @@ h2::after {
           </div>
           
           <div class="enrollment-cta">
-            <a href="https://selar.com/5rj67ed161?add_to_cart=1&utm_source=website&utm_medium=landing&utm_campaign=launch" class="enroll-button" target="_blank" rel="noopener">
+            <a id="selar-buy-btn"  href="https://selar.com/5rj67ed161?add_to_cart=1&utm_source=website&utm_medium=landing&utm_campaign=launch" class="enroll-button" target="_blank" rel="noopener">
               <span class="button-text">ENROLL NOW & SAVE 94%</span>
               <span class="button-subtext">Lifetime Access + All Bonuses</span>
             </a>
@@ -5668,7 +5697,7 @@ h2::after {
   </section>
 
   <!-- Floating WhatsApp CTA -->
-  <a href="https://wa.me/2349011240757?text=Hi%20Temllo%20Studios!%20I'm%20interested%20in%20your%20AI%20video%20production%20services." 
+  <a href="https://wa.me/2349011240757?text=Hi%20Temllo%20Studios!%20I'm%20interested%20in%20your%20AI%20video%20Ads%20Masterclass." 
      class="wa-float" 
      id="waFloat" 
      target="_blank" 
