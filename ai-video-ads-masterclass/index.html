@@ -5814,25 +5814,35 @@ h2::after {
         }
       });
 
-      // FAQ toggle function
-      function toggleFaq(element) {
-        const answer = element.nextElementSibling;
-        const isActive = element.classList.contains('active');
+   // FAQ functionality with event delegation
+function initializeFAQ() {
+  const faqContainer = document.querySelector('.faq-container');
+  
+  if (faqContainer) {
+    faqContainer.addEventListener('click', function(e) {
+      if (e.target.classList.contains('faq-question')) {
+        const question = e.target;
+        const answer = question.nextElementSibling;
+        const isActive = question.classList.contains('active');
 
         // Close all FAQ items
-        document.querySelectorAll('.faq-question').forEach(question => {
-          question.classList.remove('active');
-          if (question.nextElementSibling) {
-            question.nextElementSibling.classList.remove('active');
+        document.querySelectorAll('.faq-question').forEach(q => {
+          q.classList.remove('active');
+          if (q.nextElementSibling) {
+            q.nextElementSibling.classList.remove('active');
           }
         });
 
         // Open clicked item if it wasn't active
         if (!isActive && answer) {
-          element.classList.add('active');
+          question.classList.add('active');
           answer.classList.add('active');
         }
       }
+    });
+  }
+}
+
 
       // Smooth scrolling for navigation links
       function initializeSmoothScrolling() {
@@ -5954,6 +5964,7 @@ h2::after {
       initializeSmoothScrolling();
       initializePortfolioModal();
       initializeMobileMenu();
+       initializeFAQ();
     });
   </script>
 </body>
