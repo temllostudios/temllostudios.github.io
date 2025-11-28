@@ -106,34 +106,6 @@ src="https://www.facebook.com/tr?id=1878169182781720&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 
 <!-- Put this after loading the Pixel base code (e.g., before </body>) -->
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  var buyBtn = document.getElementById('selar-buy-btn'); // see HTML below
-  if(!buyBtn) return;
-  buyBtn.addEventListener('click', function(e){
-    // Prevent default navigation until we send the event
-    e.preventDefault();
-
-    // Fire InitiateCheckout event
-    try {
-      fbq('track', 'InitiateCheckout', {
-        value: PRICE_OR_0,     // numeric, e.g., 5000 or 0
-        currency: 'NGN',
-        content_ids: ['5rj67ed161'],
-        content_name: 'Your Product Name'
-      });
-    } catch(err){ console.warn('fbq not ready', err); }
-
-    // Navigate to Selar checkout in same tab (no new tab)
-    // Option 1: Immediate navigation (no delay)
-    window.location.href = 'https://selar.com/5rj67ed161?add_to_cart=1&utm_source=website&utm_medium=landing&utm_campaign=launch';
-
-    // Option 2: small delay to give analytics a moment
-    // setTimeout(function(){ window.location.href = 'https://selar.com/5rj67ed161?add_to_cart=1'; }, 200);
-  });
-  });
-</script>
-
 
 <style>
     * {
@@ -5954,7 +5926,32 @@ function initializeFAQ() {
           });
         }
       }
+// Put this after loading the Pixel base code (e.g., before </body>)
+document.addEventListener('DOMContentLoaded', function(){
+  var buyBtn = document.getElementById('selar-buy-btn'); // see HTML below
+  if(!buyBtn) return;
+  buyBtn.addEventListener('click', function(e){
+    // Prevent default navigation until we send the event
+    e.preventDefault();
 
+    // Fire InitiateCheckout event
+    try {
+      fbq('track', 'InitiateCheckout', {
+        value: PRICE_OR_0,     // numeric, e.g., 5000 or 0
+        currency: 'NGN',
+        content_ids: ['5rj67ed161'],
+        content_name: 'Your Product Name'
+      });
+    } catch(err){ console.warn('fbq not ready', err); }
+
+    // Navigate to Selar checkout in same tab (no new tab)
+    // Option 1: Immediate navigation (no delay)
+    window.location.href = 'https://selar.com/5rj67ed161?add_to_cart=1&utm_source=website&utm_medium=landing&utm_campaign=launch';
+
+    // Option 2: small delay to give analytics a moment
+    // setTimeout(function(){ window.location.href = 'https://selar.com/5rj67ed161?add_to_cart=1'; }, 200);
+  });
+  });
       // Mobile menu functionality
       function initializeMobileMenu() {
         const hamburger = document.getElementById('hamburger');
