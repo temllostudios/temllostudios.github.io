@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Welcome to AI Video Ads MasterClass — Temllo Studios</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- ===== Meta Pixel ===== -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1878169182781720');
+    fbq('track', 'Purchase', { 
+      value: 15000, 
+      currency: 'NGN',
+      content_name: 'AI Video Ads MasterClass',
+      content_type: 'product'
+    });
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=1878169182781720&ev=Purchase&noscript=1"/>
+  </noscript>
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #6b46c1;
+      --secondary: #9f7aea;
+      --accent: #d53f8c;
+      --dark: #121212;
+      --darker: #0a0a0a;
+      --light: #f8f8f8;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --glass-hover: rgba(255, 255, 255, 0.15);
+      --glow: 0 0 20px rgba(107, 70, 193, 0.7);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+      line-height: 1.6;
+      background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+      min-height: 100vh;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .thank-you-container {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+      position: relative;
+    }
+
+    .success-card {
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .success-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+      box-shadow: var(--glow);
+    }
+
+    .success-title {
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff, var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .success-subtitle {
+      color: #ccc;
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      margin-bottom: 2rem;
+    }
+
+    .order-details {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .detail-label {
+      color: #ccc;
+    }
+
+    .detail-value {
+      font-weight: 600;
+    }
+
+    .next-steps {
+      background: rgba(107, 70, 193, 0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      text-align: left;
+      border-left: 4px solid var(--secondary);
+    }
+
+    .next-steps h3 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .next-steps ol {
+      padding-left: 1.5rem;
+      color: #ccc;
+    }
+
+    .next-steps li {
+      margin-bottom: 0.8rem;
+    }
+
+    .next-steps strong {
+      color: #fff;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      font-weight: 700;
+      padding: 1.2rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(107, 70, 193, 0.5);
+      margin: 1rem 0;
+      font-size: 1.2rem;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      animation: pulse-glow 2s infinite;
+    }
+
+    .cta-button:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: 0.5s;
+      z-index: -1;
+    }
+
+    .cta-button:hover:before {
+      left: 100%;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(107, 70, 193, 0.7);
+    }
+
+    .fallback-section {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      display: none;
+    }
+
+    .fallback-section.active {
+      display: block;
+    }
+
+    .manual-input {
+      display: flex;
+      gap: 10px;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .manual-input input {
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .manual-input button {
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .manual-input button:hover {
+      background: var(--secondary);
+    }
+
+    .muted-text {
+      color: #999;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .signature {
+      margin-top: 2rem;
+      font-style: italic;
+      color: #ccc;
+    }
+
+    .signature strong {
+      color: var(--secondary);
+    }
+
+    @keyframes pulse-glow {
+      0% {
+        box-shadow: 0 0 15px rgba(107, 70, 193, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(107, 70, 193, 0.8);
+      }
+      100% {
+        box-shadow: 0 0 15px rgba(107, 70, 193, 0.5);
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .success-card {
+        padding: 2rem 1.5rem;
+      }
+      
+      .manual-input {
+        flex-direction: column;
+      }
+      
+      .manual-input input {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="thank-you-container">
+    <div class="success-card">
+      <div class="success-icon">
+        <i class="fas fa-check"></i>
+      </div>
+      
+      <h1 class="success-title">Welcome to AI Video Ads MasterClass!</h1>
+      <p class="success-subtitle">Your payment was successful and you're now enrolled in the course.</p>
+      
+      <div class="order-details">
+        <div class="detail-row">
+          <span class="detail-label">Order Reference:</span>
+          <span class="detail-value" id="orderRef">Loading...</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Course:</span>
+          <span class="detail-value">AI Video Ads MasterClass</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Amount Paid:</span>
+          <span class="detail-value">₦15,000</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Status:</span>
+          <span class="detail-value" style="color: #4ade80;">Confirmed</span>
+        </div>
+      </div>
+      
+      <div class="next-steps">
+        <h3>Your Next Steps:</h3>
+        <ol>
+          <li><strong>Join our Telegram group</strong> - This is where all course materials and support are provided</li>
+          <li><strong>Introduce yourself</strong> - Let us know you've joined and what you hope to achieve</li>
+          <li><strong>Access the course modules</strong> - Start with Module 1 and work through at your own pace</li>
+          <li><strong>Ask questions</strong> - Our team and community are here to help you succeed</li>
+        </ol>
+      </div>
+      
+      <a id="portalLink" class="cta-button" href="https://t.me/+gfAiNYqfkIQ5OTg0" target="_blank" rel="noopener">
+        <i class="fab fa-telegram"></i> Join Telegram Group Now
+      </a>
+      
+      <p class="muted-text" id="redirectText">You will be redirected automatically in <span id="countdown">5</span> seconds...</p>
+    </div>
+    
+    <div class="fallback-section" id="fallbackSection">
+      <h3>Manual Access Required</h3>
+      <p>If you weren't automatically redirected, please use the button above or enter your transaction reference below:</p>
+      
+      <div class="manual-input">
+        <input id="manualRef" placeholder="Paste transaction reference (optional)" />
+        <button id="confirmBtn">Confirm & Access</button>
+      </div>
+      
+      <p class="muted-text">This helps us verify your purchase if there are any issues with automatic processing.</p>
+    </div>
+    
+    <div class="signature">
+      <p>See you inside!<br>
+      <strong>— Emma & Margaret Elikwu</strong><br>
+      Nigeria's #1 AI Video Ads Coaches</p>
+    </div>
+  </div>
+
+<script>
+  // Configuration
+  const portalUrl = 'https://t.me/+gfAiNYqfkIQ5OTg0';
+  const redirectDelayMs = 5000; // 5 seconds to allow user to read the page
+  let countdown = 5;
+  let redirected = false;
+
+  // Get order reference from URL parameters
+  function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name) || 'Not provided';
+  }
+
+  // Update order reference display
+  const orderRef = getQueryParam('reference') || getQueryParam('trxref') || 'Processing...';
+  document.getElementById('orderRef').textContent = orderRef;
+
+  // Countdown and redirect
+  const countdownElement = document.getElementById('countdown');
+  const countdownInterval = setInterval(() => {
+    countdown--;
+    countdownElement.textContent = countdown;
+    
+    if (countdown <= 0) {
+      clearInterval(countdownInterval);
+      redirectToPortal();
+    }
+  }, 1000);
+
+  function redirectToPortal() {
+    if (!redirected) {
+      redirected = true;
+      try {
+        window.location.href = portalUrl;
+      } catch (e) {
+        console.warn('Redirect failed:', e);
+        showFallback();
+      }
+    }
+  }
+
+  function showFallback() {
+    document.getElementById('fallbackSection').classList.add('active');
+    document.getElementById('redirectText').textContent = 'Automatic redirect failed. Please use the manual options above.';
+  }
+
+  // Manual confirmation button
+  document.getElementById('confirmBtn').addEventListener('click', function() {
+    const manualRef = document.getElementById('manualRef').value.trim();
+    
+    // Fire purchase event again if we have a reference
+    if (manualRef) {
+      try {
+        fbq('track', 'Purchase', { 
+          value: 15000, 
+          currency: 'NGN',
+          content_name: 'AI Video Ads MasterClass',
+          content_type: 'product'
+        });
+      } catch(e) {
+        console.warn('Pixel error on manual confirmation:', e);
+      }
+    }
+    
+    // Redirect to portal
+    window.location.href = portalUrl;
+  });
+
+  // Allow Enter key to trigger confirmation
+  document.getElementById('manualRef').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      document.getElementById('confirmBtn').click();
+    }
+  });
+
+  // Show fallback if redirect doesn't happen after expected time
+  setTimeout(() => {
+    if (!redirected) {
+      showFallback();
+    }
+  }, redirectDelayMs + 2000);
+</script>
+</body>
+</html>
