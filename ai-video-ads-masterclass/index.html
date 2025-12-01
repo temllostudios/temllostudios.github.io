@@ -339,7 +339,7 @@
             }
 
             .mobile-cta {
-                display: block;
+                display: none;
                 margin-top: 2rem;
                 width: 100%;
             }
@@ -536,19 +536,21 @@
             display: block;
         }
 
-        .video-thumbnail {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-        }
+    .video-thumbnail {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('assets/images/academy/marketing-video/welcome-intro.webp');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
 
         .video-thumbnail.active {
             opacity: 0;
@@ -1520,7 +1522,7 @@
 
         .proof-image {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
             display: block;
         }
@@ -1766,14 +1768,21 @@
             .hero-video-container {
                 width: 90%;
             }
-
+            .mobile-cta {
+            display: block; /* Show only on mobile */
+            }
             .play-button {
                 width: 60px;
                 height: 60px;
                 font-size: 1.5rem;
             }
         }
-
+ 
+        @media (min-width: 769px){
+            .mobile-cta{
+                display: none !important;/*show only on mobile*/
+            }
+        }
         @media (max-width: 480px) {
             .section {
                 padding: 60px 1rem;
@@ -1819,6 +1828,9 @@
                 <li><a href="#bonuses" class="nav-link">Bonuses</a></li>
                 <li><a href="#total-value" class="nav-link">Pricing</a></li>
                 <li><a href="#course-testimonials" class="nav-link">Testimonials</a></li>
+                
+                <li><a href="https://wa.me/2349011240757?text=Hi%20Temllo%20Studios!%20I'm%20interested%20in%20your%20AI%20video%20Ads%20Masterclass." target="_blank" aria-label="Chat with us on WhatsApp" class="nav-link">Contact Us </a></li>
+
 
                 <!-- Mobile CTA Button -->
                 <div class="mobile-cta">
@@ -1868,7 +1880,7 @@
                 </div>
                 <!-- Video iframe (hidden initially) -->
                 <iframe id="videoPlayer"
-                    src=""
+                    src="https://player.vimeo.com/video/1142000575?autoplay=0&loop=1&muted=0&background=1"
                     frameborder="0"
                     allow="autoplay; fullscreen"
                     allowfullscreen>
@@ -1969,61 +1981,150 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section class="portfolio-section" id="portfolio">
-        <div class="portfolio-container">
-            <div class="section-header">
-                <h2 class="section-title">Here Are Some Of The Amazing Marketing Videos You Will Be Able To Create When You Enroll In The Course Today!</h2>
-            </div>
-            <div class="portfolio-grid">
-                <!-- Portfolio Items -->
-                <div class="portfolio-item" data-video="1127149055">
-                    <img src="assets/images/portfolio/advertising/jollof-express.png" alt="Jollof Express Marketing Video Ads">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-category">AI Advertising</span>
-                        <h3>Jollof Express Ad</h3>
-                        <p>Jollof Express AI video ads</p>
-                    </div>
-                    <div class="portfolio-play-button">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-video="1141432994">
-                    <img src="assets/images/academy/marketing-video/flash-sneakers.webp" alt="Flash Sneakers Marketing Video Ads">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-category">AI Marketing</span>
-                        <h3>Flash Sneakers Ads</h3>
-                        <p>Flash Sneakers Marketing Video Ads</p>
-                    </div>
-                    <div class="portfolio-play-button">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-video="1141432514">
-                    <img src="assets/images/academy/marketing-video/power-oil1.webp" alt="Power Oil Marketing Video Ads">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-category">AI Marketing</span>
-                        <h3>Power Oil Ad</h3>
-                        <p> Marketing Video Ads for Power Oil</p>
-                    </div>
-                    <div class="portfolio-play-button">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-video="1141431175">
-                    <img src="assets/images/academy/marketing-video/knorr1.webp" alt="Maggi Knorr Marketing Video Ads">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-category">AI Marketing</span>
-                        <h3>Maggi Knorr Ads</h3>
-                        <p>Maggi Knorr Marketing Video Ads</p>
-                    </div>
-                    <div class="portfolio-play-button">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-            </div>
+<section class="portfolio-section" id="portfolio">
+    <div class="portfolio-container">
+      <div class="section-header">
+        <h2 class="section-title">Here Are Some Of The Amazing Marketing Videos You Will Be Able To Create When You Enroll In The Course Today!</h2>
         </div>
-    </section>
+      
+      
+      
+      <div class="portfolio-grid">
+        <!-- Advertising Items -->
+        <div class="portfolio-item glass" data-video="1127149055">
+          <img src="assets/images/portfolio/advertising/jollof-express.png" alt="Jollof Express Marketing Video Ads">
+          <div class="portfolio-overlay">
+            <span class="portfolio-category">AI Advertising</span>
+            <h3>Jollof Express Ad</h3>
+            <p>Jollof Express AI video ads</p>
+          </div>
+          <div class="portfolio-play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
 
+        <div class="portfolio-item glass" data-video="1141432994">
+          <img src="assets/images/academy/marketing-video/flash-sneakers.webp" alt="Flash Sneakers Marketing Video Ads">
+          <div class="portfolio-overlay">
+            <span class="portfolio-category">AI Marketing</span>
+            <h3>Flash Sneakers Ads</h3>
+            <p>Flash Sneakers Marketing Video Ads</p>
+          </div>
+          <div class="portfolio-play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        
+        <div class="portfolio-item glass" data-video="1141432514">
+          <img src="assets/images/academy/marketing-video/power-oil1.webp" alt="Power Oil Marketing Video Ads">
+          <div class="portfolio-overlay">
+            <span class="portfolio-category">AI Marketing</span>
+            <h3>Power Oil Ad</h3>
+            <p> Marketing Video Ads for Power Oil</p>
+          </div>
+          <div class="portfolio-play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+
+        <div class="portfolio-item glass" data-video="1141431175">
+          <img src="assets/images/academy/marketing-video/knorr1.webp" alt="Maggi Knorr Marketing Video Ads">
+          <div class="portfolio-overlay">
+            <span class="portfolio-category">AI Marketing</span>
+            <h3>Maggi Knorr Ads</h3>
+            <p>Maggi Knorr Marketing Video Ads</p>
+          </div>
+          <div class="portfolio-play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+
+        <div class="portfolio-item glass" data-video="1109674781">
+          <img src="assets/images/portfolio/advertising/HYPERION-X.png" alt="HYPERION-X Marketing Video Ads">
+          <div class="portfolio-overlay">
+            <span class="portfolio-category">AI Advertising</span>
+            <h3>Hyperion X</h3>
+            <p>Hyperion X AI Car Commercial Video Ads</p>
+          </div>
+          <div class="portfolio-play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+
+        <div class="portfolio-item glass" data-video="1141429580">
+          <img src="assets/images/academy/marketing-video/ayinke-bag.webp" alt="Ayinke Bag Marketing Video Ads ">
+          <div class="portfolio-overlay">
+            <span class="portfolio-category">AI Advertising</span>
+            <h3>Ayinke Bag Ad</h3>
+            <p>Ayinke Bag Marketing Video Ad</p>
+          </div>
+          <div class="portfolio-play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+
+        <div class="portfolio-item glass"  data-video="1141430501">
+          <img src="assets/images/academy/marketing-video/indomie-noodles.webp" alt="Indomie Ads Marketing Video Ads">
+          <div class="portfolio-overlay">
+            <span class="portfolio-category">AI Advertising</span>
+            <h3>Indomie Ads</h3>
+            <p>Indomie Noodles Marketing Video Ad</p>
+          </div>
+          <div class="portfolio-play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        
+        <!-- SaaS Items -->
+        <div class="portfolio-item glass" data-video="1141430601">
+          <img src="assets/images/academy/marketing-video/nivea-cream.webp" alt="Nivea Cream Marketing Video Ads">
+          <div class="portfolio-overlay">
+            <span class="portfolio-category">AI Marketing</span>
+            <h3>Nivea Cream Ads</h3>
+            <p>Nivea Marketing Video Ad</p>
+          </div>
+          <div class="portfolio-play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        
+        <div class="portfolio-item glass"  data-video="1141431303">
+          <img src="assets/images/academy/marketing-video/volt-drink.webp" alt="Volt Drink Marketing Video Ads">
+          <div class="portfolio-overlay">
+            <span class="portfolio-category">AI Marketing</span>
+            <h3>Volt Drink</h3>
+            <p>Volt Drink Marketing Video Ad</p>
+          </div>
+          <div class="portfolio-play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        <div class="portfolio-item glass"  data-video="1141437893">
+          <img src="assets/images/academy/marketing-video/knorr2.webp" alt="Maggi Knorr Marketing Video Ads">
+          <div class="portfolio-overlay">
+            <span class="portfolio-category">AI Marketing</span>
+            <h3>Maggi Knorr</h3>
+            <p>Maggi Knorr Marketing Video Ad</p>
+          </div>
+          <div class="portfolio-play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+
+        <div class="portfolio-item glass"  data-video="1141432193">
+          <img src="assets/images/academy/marketing-video/ori-bag.webp" alt="Ori Bag Marketing Video Ads">
+          <div class="portfolio-overlay">
+            <span class="portfolio-category">AI Marketing</span>
+            <h3>Ori Bag</h3>
+            <p>Ori Bag Marketing Video Ad</p>
+          </div>
+          <div class="portfolio-play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
     <!-- Video Modal -->
     <div class="video-modal" id="videoModal">
         <div class="modal-content">
@@ -2130,7 +2231,7 @@
                 <!-- Module 7 -->
                 <div class="course-module-card">
                     <div class="module-number">07</div>
-                    <h3 class="module-title">Monetization Mastery -- Earn Naira & Dollars</h3>
+                    <h3 class="module-title">Monetization Mastery Earn Naira & Dollars</h3>
                     <p class="module-description">Turn skills into income: discover client acquisition strategies, scaling your income while working from home.</p>
                 </div>
             </div>
@@ -2287,9 +2388,8 @@
                 <div class="testimonial-proof-card">
                     <div class="testimonial-content">
                         <div class="testimonial-author">
-                            <div class="client-avatar">
-                                <span class="avatar-initials">AJ</span>
-                            </div>
+                            <img src="assets/images/academy/Urenna-Aguh.webp" class="client-avatar">
+                            
                             <div class="author-info">
                                 <h4 class="author-name">Urenna Aguh</h4>
                                 <p class="author-role">Business Coach</p>
@@ -2423,7 +2523,7 @@
                     videoThumbnail.classList.add('active');
                     videoWrapper.classList.add('active');
                     // Set your actual video URL here
-                    videoPlayer.src = "https://player.vimeo.com/video/your-video-id?autoplay=1";
+                    videoPlayer.src = "https://player.vimeo.com/video/1142000575?autoplay=1";
                 });
             }
 
